@@ -1,0 +1,7 @@
+sudo apt install default-jdk
+sudo groupadd -r wildfly
+sudo useradd -r -g wildfly -d /opt/wildfly -s /sbin/nologin wildfly
+WILDFLY_VERSION=16.0.0.Final
+wget https://download.jboss.org/wildfly/$WILDFLY_VERSION/wildfly-$WILDFLY_VERSION.tar.gz -P /tmp
+sudo tar xf /tmp/wildfly-$WILDFLY_VERSION.tar.gz -C /opt/
+sudo ln -s /opt/wildfly-$WILDFLY_VERSION /opt/wildfl
