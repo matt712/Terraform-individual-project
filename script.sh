@@ -1,5 +1,5 @@
 sudo apt update
-sudo apt -y install default-jdk
+sudo apt-get install -yq openjdk-8-jdk  
 sudo apt-get -y install python
 WILDFLY_VERSION=16.0.0.Final
 wget https://download.jboss.org/wildfly/$WILDFLY_VERSION/wildfly-$WILDFLY_VERSION.tar.gz -P /tmp
