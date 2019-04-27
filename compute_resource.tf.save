@@ -77,20 +77,3 @@ resource "null_resource" "deploy_project"{
 		]
 	}
 }
-resource "null_resource" "deploy_frontend"{
-	depends_on = ["null_resource.deploy_project"]
-	connection = {
-                host = "${google_compute_address.static.address}"
-                type = "ssh"
-                user = "mzgadd"
-                private_key = "${file("/home/mzgadd/.ssh/id_rsa")}"
-        }
-        provisioner "remote-exec"{
-                inline = [
-			"sudo sed -i 's/NEW_URL/${google_compute_address.static.address}/g' /tmp/script3.sh",
-                        "dos2unix /tmp/script3.sh",
-                        "chmod +x /tmp/script3.sh",
-                        "sudo sh /tmp/script3.sh",
-                ]
-        }
-}
