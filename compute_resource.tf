@@ -29,6 +29,10 @@ resource "google_compute_instance" "individualproject"{
 		source = "script3.sh"
 		destination = "/tmp/script3.sh"
 	}
+	provisioner "file"{
+		source = "standalone.xml"
+		destination = "/tmp/standalone.xml"
+	}
 	provisioner "remote-exec"{
 		inline = [
 			"sudo apt-get update",
