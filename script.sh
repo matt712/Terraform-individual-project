@@ -5,8 +5,6 @@ WILDFLY_VERSION=16.0.0.Final
 wget https://download.jboss.org/wildfly/$WILDFLY_VERSION/wildfly-$WILDFLY_VERSION.tar.gz -P /tmp
 sudo tar xf /tmp/wildfly-$WILDFLY_VERSION.tar.gz -C /opt/
 sudo mv /tmp/standalone.xml /opt/wildfly-$WILDFLY_VERSION/standalone/configuration
-sudo sed -i 's/127.0.0.1/0.0.0.0/g' /opt/wildfly-$WILDFLY_VERSION/standalone/configuration/standalone.xml
-sudo sed -i 's/jboss.http.port:8080/jboss.http.port:8081/g' /opt/wildfly-$WILDFLY_VERSION/standalone/configuration/standalone.xml
 sudo useradd -m -s /bin/bash wildfly
 sudo chown -R wildfly:wildfly /opt/wildfly-$WILDFLY_VERSION
 sudo cat << EOF > /etc/systemd/system/wildfly.service
